@@ -1,0 +1,64 @@
+{
+    "root": true,
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaVersion": 6,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "@typescript-eslint"
+    ],
+    "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended"
+	],
+	"ignorePatterns": [
+		"out/**"
+	],
+    "rules": {
+		"curly": ["error", "multi-line"],
+		"eofline": 0,
+		"forin": 0,
+		"@typescript-eslint/no-use-before-define": ["error", { "functions": false }],
+		"@typescript-eslint/explicit-function-return-type": 0,
+		"@typescript-eslint/type-annotation-spacing": 0,
+		"@typescript-eslint/no-explicit-any": 0,
+		"@typescript-eslint/no-unused-vars": 0,
+		"@typescript-eslint/consistent-type-assertions": 0,
+		"@typescript-eslint/no-inferrable-types": 0,
+		// "interface-name": [true, "never-prefix"],
+		// "interface-over-type-literal": false,
+		// "max-line-length": {
+		// 	"options": [160]
+		// },
+		// "member-ordering": [true, "fields-first"],
+        // "new-parens": 1,
+		// "no-angle-bracket-type-assertion": false,
+        // "no-arg": true,
+        // "no-conditional-assignment": 0,
+        // "no-consecutive-blank-lines": 0,
+        "no-console": 1,
+		// "no-reference": false,
+		// "no-shadowed-variable": [true, { "function": false, "import": false }],
+		// "no-string-literal": false,
+		// "no-trailing-whitespace": [true, "ignore-blank-lines", "ignore-jsdoc", "ignore-comments"],
+		// "object-literal-sort-keys": false,
+		// "ordered-imports": [true, { "grouped-imports": false, "named-imports-order": "case-insensitive" }],
+		// "quotes": [1, "single"],
+		// "space-before-function-paren": 1,
+		// "typedef-whitespace": [
+		// 	true,
+		// 	{
+		// 		"call-signature": "space",
+		// 		"index-signature": "nospace",
+		// 		"parameter": "nospace",
+		// 		"property-declaration": "nospace",
+		// 		"variable-declaration": "nospace"
+		// 	}
+		// ],
+		// "variable-name": [true, "ban-keywords", "check-format", "allow-leading-underscore"],
+		// "whitespace": [true, "check-branch", "check-operator"]
+		"indent": ["error", "tab"]
+    }
+}

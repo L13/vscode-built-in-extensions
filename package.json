@@ -1,0 +1,80 @@
+{
+	"name": "l13-built-in-extensions",
+	"displayName": "Built-In Extensions",
+	"description": "Disable built-in extensions features like snippets, grammars, etc.",
+	"version": "0.13.0",
+	"publisher": "L13RARY",
+	"preview": true,
+	"license": "SEE LICENCE IN LICENCE.md",
+	"homepage": "https://github.com/l13/vscode-built-in-extensions/blob/master/README.md",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/l13/vscode-built-in-extensions.git"
+	},
+	"bugs": {
+		"url": "https://github.com/l13/vscode-built-in-extensions/issues"
+	},
+	"icon": "images/icon.png",
+	"galleryBanner": {
+		"color": "#232323",
+		"theme": "dark"
+	},
+	"engines": {
+		"vscode": "^1.46.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"keywords": [
+		"disable",
+		"built-in",
+		"extensions"
+	],
+	"activationEvents": [
+		"*"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "l13BuiltInExtensions.clone",
+				"title": "Disable Built-In Extension Features"
+			}
+		],
+		"configuration": {
+			"type": "object",
+			"title": "Built-In Extensions",
+			"properties": {
+				"l13BuiltInExtensions.autoUpdateModifiedBuiltInExtensions": {
+					"type": "boolean",
+					"default": false,
+					"description": "Update the modified built-in extionsions automatically?"
+				}
+			}
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "gulp build",
+		"lint": "eslint src --ext ts",
+		"watch": "gulp watch",
+		"test": "mocha"
+	},
+	"devDependencies": {
+		"@types/glob": "^7.1.1",
+		"@types/mocha": "^7.0.2",
+		"@types/node": "^13.11.0",
+		"@types/vscode": "^1.46.0",
+		"@typescript-eslint/parser": "^2.30.0",
+		"@typescript-eslint/eslint-plugin": "^2.30.0",
+		"glob": "^7.1.6",
+		"eslint": "^6.8.0",
+		"del": "^5.1.0",
+		"gulp": "^4.0.2",
+		"mocha": "^7.1.2",
+		"rollup": "^1.32.1",
+		"rollup-plugin-typescript": "^1.0.1",
+		"typescript": "^3.8.3",
+		"vscode-test": "^1.3.0"
+	}
+}
