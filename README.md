@@ -14,7 +14,7 @@ Disable built-in extension features in Visual Studio Code by cloning the built-i
 
 ## How to use
 
-> **INFO**: It is recommended to disable every built-in extension which is not required instead of disabling its features. This is also a huge performance boost for Visual Studio Code.
+> **INFO**: It is recommended to disable every built-in extension which is not required instead of disabling its features.
 
 1. Open the command palette on macOS with `Cmd + Shift + P` or Windows/Linux with `Ctrl + Shift + P`.
 1. Search for the command `Disable Built-In Extension Features` and press `Enter`.
