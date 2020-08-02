@@ -7,7 +7,7 @@ const fs = require('fs');
 const glob = require('glob');
 const gulp = require('gulp');
 const rollup = require('rollup');
-const typescript = require('rollup-plugin-typescript');
+const typescript = require('@rollup/plugin-typescript');
 
 //	Variables __________________________________________________________________
 
@@ -29,6 +29,7 @@ gulp.task('script:services', () => {
 	
 	return rollup.rollup({
 		input: 'src/extension.ts',
+		onwarn,
 		external: [
 			'fs',
 			'path',
@@ -36,13 +37,9 @@ gulp.task('script:services', () => {
 		],
 		plugins: [
 			typescript({
-				target: 'es6',
-				lib: [
-					'es6',
-					'dom',
+				include: [
+					'src/**/!(.test).ts',
 				],
-				strict: true,
-				removeComments: true,
 			}),
 		]
 	}).then(bundle => {
@@ -50,7 +47,6 @@ gulp.task('script:services', () => {
 		return bundle.write({
 			file: 'out/extension.js',
 			format: 'cjs',
-			name: 'l13builtinservices',
 			globals: {
 				fs: 'fs',
 				path: 'path',
@@ -58,7 +54,7 @@ gulp.task('script:services', () => {
 			},
 		});
 		
-	});
+	}, onerror);
 	
 });
 
@@ -72,6 +68,7 @@ gulp.task('script:tests', () => {
 		
 		promises.push(rollup.rollup({
 			input: file.in,
+			onwarn,
 			external: [
 				'assert',
 				'glob',
@@ -81,12 +78,9 @@ gulp.task('script:tests', () => {
 			],
 			plugins: [
 				typescript({
-					target: 'es6',
-					lib: [
-						'es6',
+					include: [
+						'src/**/*.test.ts',
 					],
-					strict: true,
-					removeComments: true,
 				}),
 			]
 		}).then(bundle => {
@@ -94,7 +88,6 @@ gulp.task('script:tests', () => {
 			return bundle.write({
 				file: file.out,
 				format: 'cjs',
-				name: 'l13builtintests',
 				globals: {
 					assert: 'assert',
 					glob: 'glob',
@@ -104,7 +97,7 @@ gulp.task('script:tests', () => {
 				},
 			});
 			
-		}));
+		}, onerror));
 		
 	});
 	
@@ -155,5 +148,19 @@ function createInOut (pattern) {
 		};
 		
 	});
+	
+}
+
+function onwarn (warning) {
+	
+	console.warn(warning.toString());
+	
+}
+
+function onerror (error) {
+	
+	console.error(`Error:${error.pluginCode ? ' ' + error.pluginCode : ''} ${error.message} ${error.loc.file}:${error.loc.line}:${error.loc.column}`);
+	
+	throw error;
 	
 }
