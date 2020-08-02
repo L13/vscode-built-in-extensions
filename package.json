@@ -1,8 +1,8 @@
 {
 	"name": "l13-built-in-extensions",
 	"displayName": "Built-In Extensions",
-	"description": "Disable built-in extensions features like snippets, grammars, etc.",
-	"version": "0.13.0",
+	"description": "Disable built-in extension features like snippets, grammars, etc.",
+	"version": "0.13.1",
 	"publisher": "L13RARY",
 	"preview": true,
 	"license": "SEE LICENCE IN LICENCE.md",
@@ -48,7 +48,7 @@
 				"l13BuiltInExtensions.autoUpdateModifiedBuiltInExtensions": {
 					"type": "boolean",
 					"default": false,
-					"description": "Update the modified built-in extionsions automatically?"
+					"description": "Update the modified built-in extensions automatically?"
 				}
 			}
 		}
